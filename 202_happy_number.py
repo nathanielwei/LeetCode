@@ -38,3 +38,41 @@ class Solution:
             else:
                 e+=1
         return False
+    
+
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        mem = set()
+        sum_val = 0
+        while n >0 and n not in mem:
+            remainder = n % 10
+            sum_val += remainder ** 2
+            n = n // 10
+            if sum_val != 1:
+                n = sum_val
+                mem.add(n)
+                sum_val = 0
+        if n != 1:
+            return False
+        else:
+            return True    
+            
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        
+        visited = set()
+        curr_sum = 0
+        while n > 0 and n not in visited and n != 1:
+            visited.add(n)
+            while n > 0:
+                remainder = n%10
+                curr_sum += (remainder*remainder)
+                n = n//10
+            n = curr_sum
+            curr_sum = 0
+
+    
+        if n == 1:
+            return True
+        else:
+            return False
